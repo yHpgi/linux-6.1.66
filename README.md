@@ -1,2 +1,2 @@
 # linux
- Linux Amlogic for s905x s905x2 s905x3 s905x4
+ Linux Amlogic for s905x s905x2 s905x3 s905x4 and more...
