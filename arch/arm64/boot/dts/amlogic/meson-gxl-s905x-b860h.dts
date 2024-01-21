@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 /*
  * Copyright (c) 2016 Endless Computers, Inc.
- * 
- * sibondt
+ * Author: Carlo Caione <carlo@endlessm.com>
  */
 
 /dts-v1/;
@@ -11,7 +10,7 @@
 
 / {
 	compatible = "zte,b860h", "amlogic,p212";
-	model = "ZTE B860H V1/2";
+	model = "ZTE B860H";
 
 };
 
