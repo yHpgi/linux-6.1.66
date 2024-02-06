@@ -3,6 +3,7 @@
  * Copyright (c) 2018 BayLibre SAS. All rights reserved.
  *
  * sibondt
+ * yhpgi
  */
 
 /dts-v1/;
@@ -10,6 +11,7 @@
 #include "meson-g12a.dtsi"
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/leds/common.h>
 #include <dt-bindings/sound/meson-g12a-tohdmitx.h>
 
 / {
@@ -19,6 +21,26 @@
 	aliases {
 		serial0 = &uart_AO;
 		ethernet0 = &ethmac;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		red {
+			color = <LED_COLOR_ID_RED>;
+			function = LED_FUNCTION_POWER;
+			gpios = <&gpio GPIOX_6 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+			panic-indicator;
+			retain-state-suspended;
+		};
+
+        	green {
+			color = <LED_COLOR_ID_GREEN>;
+			function = LED_FUNCTION_POWER;
+			gpios = <&gpio GPIOX_7 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
 	};
 
 	spdif_dit: audio-codec-1 {
@@ -65,7 +87,7 @@
 
 	sdio_pwrseq: sdio-pwrseq {
 		compatible = "mmc-pwrseq-simple";
-		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&gpio_ao GPIOAO_11 GPIO_ACTIVE_HIGH>;
 		clocks = <&wifi32k>;
 		clock-names = "ext_clock";
 	};
